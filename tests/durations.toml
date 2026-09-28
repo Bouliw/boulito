@@ -1,0 +1,36 @@
+# Dictated durations → a single number of seconds (timers, reminders): ./voix route --test
+# Boulito always sends this number to the « Minuteur Boulito » shortcut, never the raw text
+# (« Get Numbers from Input » would extract 1 and 30 from « 1 min 30 »).
+
+[seconds]
+"1h 10min et 30 sec" = 4230
+"1 min et 30 sec" = 90
+"deux minutes trente" = 150
+"une heure et quart" = 4500
+"une demi-heure" = 1800
+"1,5 minute" = 90
+"45 secondes" = 45
+"trois quarts d'heure" = 2700
+"un quart d'heure" = 900
+"une minute et demie" = 90
+"deux heures et demie" = 9000
+"une heure moins le quart" = 2700
+"une heure et trois quarts" = 6300
+"10 min 30 s" = 630
+"2 heures 15" = 8100
+"1 h 5" = 3900
+"1 heure 30 minutes" = 5400
+"90 secondes" = 90
+"vingt-cinq minutes" = 1500
+"soixante-dix secondes" = 70
+"quatre-vingt-dix secondes" = 90
+"25 heures" = 90000
+"2 hours 5 minutes and 10 seconds" = 7510
+"an hour and a half" = 5400
+"an hour and a quarter" = 4500
+"half an hour" = 1800
+"a minute and a half" = 90
+"1 minute 30" = 90
+"one hour" = 3600
+"dans une demi-heure" = 1800
+"dans 10 secondes" = 10

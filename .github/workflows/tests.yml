@@ -1,0 +1,31 @@
+# Replays the rule tests on every push and pull request, on a Mac with Apple Silicon.
+# No model, microphone or Safari needed: sentences, durations, dates, confirmations, dictation, calculations.
+name: Tests
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+# Actions pinned to a commit (a tag can be moved); Dependabot (.github/dependabot.yml) proposes the updates
+
+jobs:
+  rules:
+    runs-on: macos-15
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97  # v7.0.0
+        with:
+          python-version: "3.13"
+      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7  # v10.2.0
+      - name: Python environment
+        run: uv sync --frozen
+      - name: Scripts parse
+        run: for f in install.sh uninstall.sh voix boulito app/build.sh app/signing.sh app/package.sh; do zsh -n "$f"; done
+      - name: Rule tests
+        run: ./voix route --test
+      - name: Unit tests
+        run: uv run --frozen python -m unittest discover -s tests -v

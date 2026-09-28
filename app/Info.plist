@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleIdentifier</key>
+	<string>local.boulito</string>
+	<key>CFBundleName</key>
+	<string>Boulito</string>
+	<key>CFBundleDisplayName</key>
+	<string>Boulito</string>
+	<key>CFBundleExecutable</key>
+	<string>Boulito</string>
+	<key>CFBundleIconFile</key>
+	<string>Boulito</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.2.2</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>14.0</string>
+	<key>LSUIElement</key>
+	<true/>
+	<key>NSCalendarsFullAccessUsageDescription</key>
+	<string>Boulito reads your calendar when you ask (“what do I have tomorrow?”) and adds an event only after your spoken “yes”. It never changes or deletes anything.</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Boulito reads your calendar when you ask and adds an event only after your spoken “yes”.</string>
+	<key>NSAppSleepDisabled</key>
+	<true/>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Boulito listens to your command while you hold the talk key (or after its name in always-listening mode). Nothing is recorded; everything stays on this Mac.</string>
+	<key>NSAppleEventsUsageDescription</key>
+	<string>Boulito controls the YouTube tab in Safari when you ask (playback, search, player) and the Music app. It never acts on other websites.</string>
+</dict>
+</plist>

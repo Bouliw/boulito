@@ -1,0 +1,31 @@
+#!/bin/zsh
+# Boulito.app: the assistant with its own permissions (not Terminal's).
+#   ./boulito            starts Boulito (icon in the menu bar, no window)
+#   ./boulito stop       stops it
+#   ./boulito diag       runs a diagnostic as Boulito.app (its permissions) and shows its output
+#                        (the app only runs start, diag and check: no other program can borrow its permissions)
+DIR="${0:A:h}"
+LOG="$DIR/logs/$(date +%F).app.log"
+# The app's processes, found by their exact path (not a regular expression: the folder may contain "(", "."…)
+app_pids() { ps -axo pid=,command= | awk -v exe="$DIR/Boulito.app/Contents/MacOS/Boulito" '{pid=$1; sub(/^ *[0-9]+ /, ""); if (index($0, exe) == 1) print pid}' }
+if [[ "$1" == "stop" ]]; then
+  pids=($(app_pids))
+  if (( ! ${#pids} )); then echo "Boulito was not running."; exit 0; fi
+  kill $pids
+  for i in {1..50}; do  # up to 10 s: the assistant restores the sound and releases the model before quitting
+    (( ${#$(app_pids)} )) || { echo "Boulito stopped."; exit 0; }
+    sleep 0.2
+  done
+  echo "Boulito is still stopping (see $LOG)."
+  exit 1
+fi
+[[ -d "$DIR/Boulito.app" ]] || "$DIR/app/build.sh"
+if [[ $# -eq 0 ]]; then
+  if (( ${#$(app_pids)} )); then echo "Boulito is already running (./boulito stop to stop it)."; exit 0; fi
+  open -a "$DIR/Boulito.app" && echo "Boulito started (log: $LOG)."
+  exit 0
+fi
+before=$(wc -c < "$LOG" 2>/dev/null || echo 0)
+[[ "$1" == "diag" ]] && echo "Switch to the app to test now (5 s by default, --delay N to change): the result appears afterwards."
+open -W -n -a "$DIR/Boulito.app" --args "$@"
+tail -c +$((before + 1)) "$LOG"

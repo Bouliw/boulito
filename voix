@@ -1,0 +1,24 @@
+#!/bin/zsh
+# Runs Boulito (command line) with every cache and model kept in this folder.
+set -e
+DIR="${0:A:h}"
+
+export HF_HOME="$DIR/models"
+export HF_HUB_DISABLE_TELEMETRY=1
+export DO_NOT_TRACK=1
+export UV_CACHE_DIR="$DIR/.cache/uv"
+export UV_PYTHON_INSTALL_DIR="$DIR/.cache/uv-python"
+export UV_PYTHON_DOWNLOADS=never
+export UV_OFFLINE=1                 # uv never goes online at launch
+export XDG_CACHE_HOME="$DIR/.cache"
+export TORCH_HOME="$DIR/.cache/torch"
+export NUMBA_CACHE_DIR="$DIR/.cache/numba"
+
+# Launched by Boulito.app, the PATH is minimal: uv is also looked for where its installers put it
+UV="$(command -v uv || true)"  # not in the PATH: not an error, look elsewhere
+for candidate in /opt/homebrew/bin/uv /usr/local/bin/uv "$HOME/.local/bin/uv" "$HOME/.cargo/bin/uv"; do
+  [[ -n "$UV" ]] && break
+  [[ -x "$candidate" ]] && UV="$candidate"
+done
+[[ -n "$UV" ]] || { echo "uv not found: brew install uv" >&2; exit 1; }
+exec "$UV" run --project "$DIR" --quiet voix "$@"

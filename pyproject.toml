@@ -1,0 +1,39 @@
+[project]
+name = "voix"                # internal package name ("voix": the assistant is called Boulito)
+version = "0.2.2"
+description = "Local voice assistant for macOS: apps, YouTube in Safari, music, timers, dictation, 100% on-device"
+readme = "README.md"
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE"]
+authors = [{ name = "Bouliw" }]
+requires-python = ">=3.11"   # install.sh and .python-version require 3.13
+classifiers = [
+    "Environment :: MacOS X :: Cocoa",
+    "Operating System :: MacOS :: MacOS X",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Multimedia :: Sound/Audio :: Speech",
+]
+dependencies = [
+    "mlx-lm>=0.31.3",
+    "numpy>=2.4.6",
+    "parakeet-mlx>=0.5.2",
+    "pyobjc-framework-quartz>=12.2.2",
+    "sounddevice>=0.5.6",
+]
+
+[project.urls]
+Homepage = "https://github.com/Bouliw/boulito"
+Issues = "https://github.com/Bouliw/boulito/issues"
+
+[project.scripts]
+voix = "voix.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.12,<0.13"]
+build-backend = "uv_build"
+
+[tool.uv]
+# System Python 3.13 (Homebrew or python.org): uv downloads nothing outside the folder
+python-downloads = "never"
+python-preference = "only-system"
+cache-dir = ".cache/uv"          # relative to the current directory: run uv from the project folder

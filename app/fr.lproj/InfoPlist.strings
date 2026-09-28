@@ -1,0 +1,5 @@
+/* macOS permission request texts, in French */
+"NSMicrophoneUsageDescription" = "Boulito écoute votre commande pendant que vous maintenez la touche de parole (ou après son nom en écoute ouverte). Rien n'est enregistré, tout reste sur ce Mac.";
+"NSAppleEventsUsageDescription" = "Boulito pilote l'onglet YouTube de Safari à votre demande (lecture, recherche, lecteur) et l'app Musique. Il n'agit jamais sur un autre site.";
+"NSCalendarsFullAccessUsageDescription" = "Boulito lit votre agenda quand vous le demandez (« qu'est-ce que j'ai demain ? ») et n'ajoute un événement qu'après votre « oui ». Il ne modifie ni ne supprime jamais rien.";
+"NSCalendarsUsageDescription" = "Boulito lit votre agenda quand vous le demandez et n'ajoute un événement qu'après votre « oui ».";

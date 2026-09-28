@@ -1,0 +1,28 @@
+# Everything generated or downloaded stays local
+.venv/
+models
+.cache/
+logs/
+__pycache__/
+*.pyc
+.DS_Store
+
+# Personal or secret: never in the public repository
+config.toml
+*.local.*
+Boulito.app/
+
+# Exported, signed shortcuts: the signature may contain personal data (never publish)
+shortcuts/*.shortcut
+
+# Local signing certificate of Boulito.app (private key: never publish)
+.signing/
+
+# Generated: the app icon (app/build.sh), the test audio (tests/audio/generate.sh, macOS voices), packages
+tests/audio/*.wav
+tests/audio/*.aiff
+dist/
+build/
+*.dmg
+*.egg-info/
+*.toml.tmp

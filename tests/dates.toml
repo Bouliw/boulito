@@ -1,0 +1,423 @@
+# Spoken dates and times → moment understood: .venv/bin/python -c "from voix import dates; dates.run_tests()"
+# Reference moment: Saturday 26 September 2026, 1 pm. Default time for a day without a time: 9 am.
+# Fields: text, at, has_time (optional), rest (optional); none = true if nothing must be found.
+
+now = 2026-09-26T13:00:00
+
+# --- Main cases ---------------------------------------------------------------
+
+[[case]]
+text = "rappelle-moi demain à 9 h d'appeler la banque"
+at = 2026-09-27T09:00:00
+has_time = true
+rest = "rappelle-moi d'appeler la banque"
+
+[[case]]
+text = "ajoute un rendez-vous lundi prochain à 14 h 30 avec Paul"
+at = 2026-09-28T14:30:00
+has_time = true
+rest = "ajoute un rendez-vous avec Paul"
+
+[[case]]
+text = "demain à 9 h"
+at = 2026-09-27T09:00:00
+has_time = true
+rest = ""
+
+[[case]]
+text = "lundi prochain à 14 h 30"
+at = 2026-09-28T14:30:00
+has_time = true
+
+[[case]]
+text = "dans une heure et quart"
+at = 2026-09-26T14:15:00
+has_time = true
+
+# --- Relative durations ---------------------------------------------------------
+
+[[case]]
+text = "Rappelle-moi dans 20 minutes de sortir le linge."
+at = 2026-09-26T13:20:00
+has_time = true
+rest = "Rappelle-moi de sortir le linge."
+
+[[case]]
+text = "dans deux heures"
+at = 2026-09-26T15:00:00
+has_time = true
+
+[[case]]
+text = "dans un quart d'heure, rappelle-moi de sortir le gâteau"
+at = 2026-09-26T13:15:00
+rest = "rappelle-moi de sortir le gâteau"
+
+[[case]]
+text = "remind me in an hour and a half to call mom"
+at = 2026-09-26T14:30:00
+has_time = true
+rest = "remind me to call mom"
+
+[[case]]
+text = "in 10 minutes"
+at = 2026-09-26T13:10:00
+
+[[case]]
+text = "dans 3 jours"
+at = 2026-09-29T09:00:00
+has_time = false
+
+[[case]]
+text = "in two weeks"
+at = 2026-10-10T09:00:00
+has_time = false
+
+# --- Days -----------------------------------------------------------------------
+
+[[case]]
+text = "aujourd'hui"
+at = 2026-09-26T09:00:00
+has_time = false
+
+[[case]]
+text = "ce soir"
+at = 2026-09-26T20:00:00
+has_time = false
+
+[[case]]
+text = "rappelle-moi cet après-midi d'arroser les plantes"
+at = 2026-09-26T15:00:00
+has_time = false
+rest = "rappelle-moi d'arroser les plantes"
+
+[[case]]
+text = "ce matin"
+at = 2026-09-26T09:00:00
+has_time = false
+
+[[case]]
+text = "rappelle-moi demain de payer le loyer"
+at = 2026-09-27T09:00:00
+has_time = false
+rest = "rappelle-moi de payer le loyer"
+
+[[case]]
+text = "demain matin"
+at = 2026-09-27T09:00:00
+has_time = false
+
+[[case]]
+text = "demain soir"
+at = 2026-09-27T20:00:00
+has_time = false
+
+[[case]]
+text = "après-demain"
+at = 2026-09-28T09:00:00
+has_time = false
+
+[[case]]
+text = "tonight"
+at = 2026-09-26T20:00:00
+has_time = false
+
+[[case]]
+text = "today"
+at = 2026-09-26T09:00:00
+has_time = false
+
+[[case]]
+text = "remind me tomorrow to buy bread"
+at = 2026-09-27T09:00:00
+has_time = false
+rest = "remind me to buy bread"
+
+[[case]]
+text = "tomorrow evening"
+at = 2026-09-27T20:00:00
+has_time = false
+
+[[case]]
+text = "tomorrow morning"
+at = 2026-09-27T09:00:00
+has_time = false
+
+[[case]]
+text = "the day after tomorrow"
+at = 2026-09-28T09:00:00
+has_time = false
+
+[[case]]
+text = "demain soir à 8 h"
+at = 2026-09-27T20:00:00
+has_time = true
+
+[[case]]
+text = "ce soir à 21 h"
+at = 2026-09-26T21:00:00
+has_time = true
+
+[[case]]
+text = "tomorrow morning at 7"
+at = 2026-09-27T07:00:00
+has_time = true
+
+[[case]]
+text = "demain midi"
+at = 2026-09-27T12:00:00
+has_time = true
+
+# --- Weekdays (always strictly after today) -----------------------------------
+
+[[case]]
+text = "lundi"
+at = 2026-09-28T09:00:00
+has_time = false
+
+[[case]]
+text = "samedi"
+at = 2026-10-03T09:00:00
+has_time = false
+
+[[case]]
+text = "mardi matin"
+at = 2026-09-29T09:00:00
+has_time = false
+
+[[case]]
+text = "next monday"
+at = 2026-09-28T09:00:00
+has_time = false
+
+[[case]]
+text = "on friday"
+at = 2026-10-02T09:00:00
+has_time = false
+
+[[case]]
+text = "remind me on friday at 3 pm to pay the rent"
+at = 2026-10-02T15:00:00
+has_time = true
+rest = "remind me to pay the rent"
+
+[[case]]
+text = "réunion vendredi à 18 h"
+at = 2026-10-02T18:00:00
+rest = "réunion"
+
+# --- Dates ------------------------------------------------------------------------
+
+[[case]]
+text = "le 3 octobre"
+at = 2026-10-03T09:00:00
+has_time = false
+
+[[case]]
+text = "rappelle-moi le 3/10 de renouveler le passeport"
+at = 2026-10-03T09:00:00
+has_time = false
+rest = "rappelle-moi de renouveler le passeport"
+
+[[case]]
+text = "3 octobre 2027"
+at = 2027-10-03T09:00:00
+has_time = false
+
+[[case]]
+text = "october 3"
+at = 2026-10-03T09:00:00
+has_time = false
+
+[[case]]
+text = "remind me on the 3rd of october to renew my passport"
+at = 2026-10-03T09:00:00
+rest = "remind me to renew my passport"
+
+[[case]]
+text = "le 15 août"
+at = 2027-08-15T09:00:00
+has_time = false
+
+[[case]]
+text = "le 15"
+at = 2026-10-15T09:00:00
+has_time = false
+
+[[case]]
+text = "le 28"
+at = 2026-09-28T09:00:00
+has_time = false
+
+[[case]]
+text = "rendez-vous chez le dentiste le trois novembre à dix heures et demie"
+at = 2026-11-03T10:30:00
+has_time = true
+rest = "rendez-vous chez le dentiste"
+
+[[case]]
+text = "le premier octobre"
+at = 2026-10-01T09:00:00
+
+[[case]]
+text = "le 1er janvier à midi"
+at = 2027-01-01T12:00:00
+has_time = true
+
+[[case]]
+text = "lundi 28 septembre à 14 h 30"
+at = 2026-09-28T14:30:00
+has_time = true
+
+[[case]]
+text = "on Monday, September 28 at 2:30 pm"
+at = 2026-09-28T14:30:00
+
+# --- Times -------------------------------------------------------------------------
+
+[[case]]
+text = "à 9 h"
+at = 2026-09-27T09:00:00
+has_time = true
+
+[[case]]
+text = "rappelle-moi à 9h de sortir"
+at = 2026-09-27T09:00:00
+rest = "rappelle-moi de sortir"
+
+[[case]]
+text = "à 9 heures"
+at = 2026-09-27T09:00:00
+
+[[case]]
+text = "à 14 h 30"
+at = 2026-09-26T14:30:00
+has_time = true
+
+[[case]]
+text = "à 14h30"
+at = 2026-09-26T14:30:00
+
+[[case]]
+text = "à 14:30"
+at = 2026-09-26T14:30:00
+
+[[case]]
+text = "à 9 heures et demie"
+at = 2026-09-27T09:30:00
+
+[[case]]
+text = "à 9 h et quart"
+at = 2026-09-27T09:15:00
+
+[[case]]
+text = "à 10 h moins le quart"
+at = 2026-09-27T09:45:00
+
+[[case]]
+text = "à midi"
+at = 2026-09-27T12:00:00
+has_time = true
+
+[[case]]
+text = "à minuit"
+at = 2026-09-27T00:00:00
+has_time = true
+
+[[case]]
+text = "demain à midi et demi"
+at = 2026-09-27T12:30:00
+has_time = true
+
+[[case]]
+text = "à 9 h du matin"
+at = 2026-09-27T09:00:00
+
+[[case]]
+text = "à 3 h de l'après-midi"
+at = 2026-09-26T15:00:00
+
+[[case]]
+text = "à 8 h du soir"
+at = 2026-09-26T20:00:00
+
+[[case]]
+text = "à neuf heures"
+at = 2026-09-27T09:00:00
+
+[[case]]
+text = "à quatorze heures trente"
+at = 2026-09-26T14:30:00
+
+[[case]]
+text = "vers 17 h, rappelle-moi de fermer les volets"
+at = 2026-09-26T17:00:00
+rest = "rappelle-moi de fermer les volets"
+
+[[case]]
+text = "ajoute réunion demain de 14 h à 16 h"
+at = 2026-09-27T14:00:00
+rest = "ajoute réunion"
+
+[[case]]
+text = "at 9 am"
+at = 2026-09-27T09:00:00
+has_time = true
+
+[[case]]
+text = "at 2:30 pm"
+at = 2026-09-26T14:30:00
+
+[[case]]
+text = "at noon"
+at = 2026-09-27T12:00:00
+
+[[case]]
+text = "at midnight"
+at = 2026-09-27T00:00:00
+
+[[case]]
+text = "at 9 o'clock"
+at = 2026-09-26T21:00:00
+
+[[case]]
+text = "tomorrow at 9"
+at = 2026-09-27T09:00:00
+
+[[case]]
+text = "tomorrow at 3"
+at = 2026-09-27T15:00:00
+
+[[case]]
+text = "remind me at 7:45 am tomorrow to take the train"
+at = 2026-09-27T07:45:00
+rest = "remind me to take the train"
+
+[[case]]
+text = "half past nine tonight"
+at = 2026-09-26T21:30:00
+
+# --- Nothing to find --------------------------------------------------------------
+
+[[case]]
+text = "rappelle-moi d'appeler la banque"
+none = true
+
+[[case]]
+text = "à 2 minutes"
+none = true
+
+[[case]]
+text = "mets pause"
+none = true
+
+[[case]]
+text = "monte le son à 50 %"
+none = true
+
+[[case]]
+text = "réserve une salle pendant 2 heures"
+none = true
+
+[[case]]
+text = "play the first video"
+none = true

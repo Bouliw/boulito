@@ -1,0 +1,83 @@
+# Replies to a confirmation (creating an appointment or a reminder, sending a message…): ./voix route --test
+# Only a clear « oui » confirms. Negation, ambiguity, silence: cancelled. When in doubt, cancel.
+# Every word must be a yes (polite words and the assistant's name aside), three words at most: in open
+# listening, a video that says « go back » or « d'accord avec toi » does not confirm a message.
+
+[yes]
+"Okay" = true
+"Ok vas-y" = true
+"Oui ok" = true
+"OK" = true
+"Oui." = true
+"oui" = true
+"Ouais" = true
+"Vas-y" = true
+"vas y" = true
+"Oui, je confirme." = true
+"Je confirme" = true
+"Oui vas-y" = true
+"D'accord" = true
+"Bien sûr" = true
+"Exactement" = true
+"Yes" = true
+"Sí" = true
+"Claro" = true
+"Sim" = true
+"Oui oui" = true
+"Oui merci" = true
+"Confirmé" = true
+"Yes please" = true
+"Oui Boulito" = true
+"Of course" = true
+"Genau" = true
+"Ouais vas-y" = true
+
+[no]
+"Non" = false
+"Non." = false
+"Non, je ne confirme pas." = false
+"non je confirme pas non" = false
+"oui non" = false
+"non oui" = false
+"pas maintenant" = false
+"Surtout pas" = false
+"Non merci" = false
+"Annule" = false
+"Laisse tomber" = false
+"Oublie" = false
+"Attends" = false
+"Plus tard" = false
+"Stop" = false
+"Oui mais pas maintenant" = false
+"Euh" = false
+"Je sais pas" = false
+"Peut-être" = false
+"Si tu veux" = false
+"" = false
+"Bof" = false
+"No" = false
+"Nope" = false
+"Don't" = false
+"Cancel" = false
+"Not now" = false
+"Nein" = false
+"Não" = false
+"No gracias" = false
+"Oui oui je veux bien que tu envoies ce message à Paul demain" = false
+"Oui, c'est bon" = false
+"Carrément" = true
+"Yeah, go ahead" = false
+"Sure" = false
+"Ja, genau" = false
+"Va bene" = false
+"go to my subscriptions" = false
+"go back" = false
+"ok mets pause" = false
+"sure thing buddy" = false
+"correct answer" = false
+"c'est bon ça" = false
+"d'accord avec toi" = false
+"exactement ce que je pense" = false
+"genau das ist es" = false
+"Merci" = false
+"Oui, mets pause" = false

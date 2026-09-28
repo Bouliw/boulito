@@ -1,0 +1,72 @@
+# Long dictation: each phrase heard → text to type and command (./voix route --test)
+# command: "" (none), stop, newline (⇧ + Return, never Return), paragraph, undo
+
+[[case]]
+text = "Bonjour à tous, merci d'être venus."
+typed = "Bonjour à tous, merci d'être venus."
+command = ""
+
+[[case]]
+text = "Merci à tous. Fin de dictée."
+typed = "Merci à tous."
+command = "stop"
+
+[[case]]
+text = "Fin de la dictée."
+typed = ""
+command = "stop"
+
+[[case]]
+text = "Arrête la dictée"
+typed = ""
+command = "stop"
+
+[[case]]
+text = "See you tomorrow. End dictation."
+typed = "See you tomorrow."
+command = "stop"
+
+[[case]]
+text = "Bonjour, à la ligne."
+typed = "Bonjour,"
+command = "newline"
+
+[[case]]
+text = "Nouvelle ligne"
+typed = ""
+command = "newline"
+
+[[case]]
+text = "Voilà pour aujourd'hui. Nouveau paragraphe."
+typed = "Voilà pour aujourd'hui."
+command = "paragraph"
+
+[[case]]
+text = "Efface ça."
+typed = ""
+command = "undo"
+
+[[case]]
+text = "Scratch that"
+typed = ""
+command = "undo"
+
+[[case]]
+text = "Il faut effacer ça demain dans le tableau."
+typed = "Il faut effacer ça demain dans le tableau."
+command = ""
+
+[[case]]
+text = "La ligne de bus passe à la ligne 4."
+typed = "La ligne de bus passe à la ligne 4."
+command = ""
+
+[[case]]
+text = "Merci pour tout, soit la ligne."
+typed = "Merci pour tout,"
+command = "newline"
+
+[[case]]
+text = "Saute une ligne."
+typed = ""
+command = "newline"

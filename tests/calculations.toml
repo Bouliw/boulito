@@ -1,0 +1,38 @@
+# Calculations said aloud: ./voix route --test
+# value: expected result, computed by the code (calc.py); none: not a calculation (the phrase goes elsewhere)
+
+[value]
+"Combien font 15 % de 80 ?" = 12
+"Combien font 17 fois 23 ?" = 391
+"17 x 23" = 391
+"Combien fait 7 fois 8 ?" = 56
+"Combien font deux plus deux ?" = 4
+"Quatre-vingt-dix-neuf moins trois ça fait combien ?" = 96
+"Combien fait 100 divisé par 4 ?" = 25
+"Racine carrée de 144." = 12
+"Calcule 2 puissance 10" = 1024
+"12 au carré" = 144
+"Combien font 1 000 fois 3 ?" = 3000
+"Combien font 1,5 fois 4 ?" = 6
+"10-3" = 7
+"(2+3)*4" = 20
+"La moitié de 250" = 125
+"Le double de 21" = 42
+"Combien font 80 plus 15 % ?" = 92
+"100 moins 20 %" = 80
+"vingt et un fois deux" = 42
+"trois sur quatre" = 0.75
+"Combien font 3,5 % de 1 200 ?" = 42
+"Combien font deux mille trois cent quatre-vingt-dix plus 10 ?" = 2400
+"Dis-moi combien font 6 fois 7" = 42
+"What's 15 percent of 80?" = 12
+"What is 12 times 12?" = 144
+"How much is 9 divided by 3?" = 3
+"Combien font 0,1 plus 0,2 ?" = 0.3
+
+[none]
+phrases = [
+  "Quelle est la capitale de la France ?", "Deux fois plus vite", "Plus 5", "Moins fort", "Mets le son à 50 %",
+  "Combien de secondes dans une heure ?", "En x 1,5", "Vitesse x2", "Avance de 30 secondes", "Mets en 1080p", "Mets 2 fois",
+  "Recule de 10", "Volume à 30 %", "Mets la 2", "Minuteur 2 minutes", "x2",
+]

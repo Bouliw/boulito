@@ -1,0 +1,58 @@
+# Boulito settings. Copied to config.toml on first launch; the menu and the Setup window edit config.toml
+# for you (comments are kept). Relative paths start from the data folder: the project folder, or
+# ~/Library/Application Support/Boulito for the app downloaded as a .dmg.
+
+[trigger]
+mode = "push_to_talk"      # "push_to_talk": hold a key to talk; "open": always listening for the wake word
+wake_word = "Boulito"      # name of the assistant, also its wake word in open listening (two syllables or more)
+key = "alt_r"              # key to hold: alt_r (right ⌥), alt_l, cmd_r, ctrl_r, shift_r, fn, f13, f14, f15, or a combination
+min_hold_ms = 200          # shorter presses are ignored (a shortcut never opens the microphone)
+
+[audio]                    # microphone: the one chosen in System Settings → Sound → Input
+vad_threshold = 0.5        # speech probability (Silero VAD)
+vad_silence_ms = 300       # silence that ends a sentence: transcription starts without waiting for the key release
+pad_ms = 250               # margin kept before and after speech
+max_seconds = 30           # longer sentences are cut
+open_silence_ms = 600      # open listening: silence that ends a sentence (longer: people pause while talking)
+open_gate = 0.006          # open listening: below this level (quiet room), the VAD does not even run
+duck = true                # lower the Mac's volume while listening (like Siri), restored before acting
+echo_cancel = true         # open listening: macOS echo cancellation removes the Mac's own sound from the microphone
+conversation = true        # open listening: after a command, keep listening a few seconds without the wake word
+conversation_s = 5         # length of that window (seconds)
+
+[mac]
+volume_step = 15           # "volume up" / "volume down": steps of 15 % of the Mac's volume
+
+[stt]
+model = "mlx-community/parakeet-tdt-0.6b-v3"
+
+[llm]
+model = "9b"               # "4b" Fast, "9b" High, "35b" Extreme, "35b-full" Ultraboost (Qwen 3.5, 4-bit, MLX)
+
+[apps]
+# Spoken names on top of the apps found in /Applications ("Final Cut" already finds "Final Cut Pro")
+aliases = { "vs code" = "Visual Studio Code", "settings" = "System Settings", "reglages" = "System Settings", "preferences" = "System Settings", "browser" = "Safari", "navigateur" = "Safari", "musique" = "Music", "calculette" = "Calculator", "photo" = "Photos" }
+
+[shortcuts]
+allowed = []               # macOS Shortcuts that "run the shortcut …" may start, by exact name (none by default)
+
+[latency]                  # targets in milliseconds (compared in ./voix stats)
+level0_ms = 300
+level1_ms = 1500
+
+[feedback]
+sounds = true              # beeps when listening starts and stops
+notifications = true       # what was understood and done
+icon_states = true         # menu bar icon shows the state (microphone, pencil…); otherwise it stays the same
+announce = true            # spoken tips: listening mode changed, dictation started
+language = "en"            # interface and spoken answers: "en", "fr", "es", "de", "it" or "pt" (first launch: the Mac's language)
+understood = ["en"]        # languages the assistant understands (first launch: the Mac's language and English); others are ignored
+voice = ""                 # voice for `say`; empty = the language's default voice
+
+[journal]
+dir = "logs"
+retention_days = 7         # commands and actions only, never audio
+
+[app]
+setup_done = false         # the Setup window opens on first launch (reopen it from the menu: Setup…)
+check_updates = true       # app from the .dmg: asks GitHub once a day if a new version is out (notification)
