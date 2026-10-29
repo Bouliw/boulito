@@ -1,3 +1,8 @@
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/banner-dark.png">
+  <img src="docs/banner-light.png" alt="boulito" width="100%">
+</picture>
+
 <p align="center">
   <img src="app/icon/Boulito.iconset/icon_256x256.png" width="128" alt="Boulito">
 </p>
