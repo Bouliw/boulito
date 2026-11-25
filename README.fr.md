@@ -15,7 +15,7 @@ Pas de cloud, pas de compte, pas de serveur, aucun port ouvert.</p>
 
 <p align="center"><a href="README.md">English version</a> · <a href="docs/conception.fr.md">Notes de conception</a></p>
 
-<p align="center"><a href="https://github.com/Bouliw/boulito/actions/workflows/tests.yml"><img src="https://github.com/Bouliw/boulito/actions/workflows/tests.yml/badge.svg" alt="Tests"></a></p>
+<p align="center"><a href="https://github.com/Bouliw/boulito/actions/workflows/tests.yml"><img src="https://github.com/Bouliw/boulito/actions/workflows/tests.yml/badge.svg" alt="Tests"></a> <a href="https://github.com/Bouliw/boulito/releases/latest"><img src="https://img.shields.io/github/v/release/Bouliw/boulito?sort=semver" alt="Release"></a> <a href="LICENSE"><img src="https://img.shields.io/github/license/Bouliw/boulito" alt="License"></a></p>
 
 ---
 
